@@ -13,7 +13,6 @@ const port = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-// app.use(express.json())
 app.use(cors());
 
 
@@ -52,10 +51,10 @@ app.get('/api/auth/register', (req,res)=> {
     db.collection('users').find().toArray((err,result)=>{
         if (err) throw err;
         res.send(result)
-        // res.json(req.body)
     })
     
 })
+
 app.post('/api/auth/register', (req,res)=> {
     const data = {
         name: req.body.name,
@@ -66,9 +65,30 @@ app.post('/api/auth/register', (req,res)=> {
     console.log(data)
     db.collection('users').insertOne(data, (err, result)=> {
         if(err) throw err
-        // res.send('Success')
     })
-    // res.send('Success')
+})
+
+app.post('/contact', (req,res)=> {
+    const data = {
+        name: req.body.name,
+        email: req.body.email,
+        pnumber: req.body.pnumber,
+        concern: req.body.concern
+    }
+    db.collection('contact').insertOne(data, (err, result)=> {
+        if(err) throw err
+    })
+})
+
+app.post('/feedback', (req,res)=> {
+    const data = {
+        name: req.body.name,
+        email: req.body.email,
+        comments: req.body.comments
+    }
+    db.collection('feedback').insertOne(data, (err, result)=> {
+        if(err) throw err
+    })
 })
 
 // connect with mongodb
