@@ -47,26 +47,26 @@ app.get('/books/:title', (req,res)=> {
     })
 })
 
-// app.get('/api/auth/register', (req,res)=> {
-//     db.collection('users').find().toArray((err,result)=>{
-//         if (err) throw err;
-//         res.send(result)
-//     })
+app.get('/api/auth/register', (req,res)=> {
+    db.collection('users').find().toArray((err,result)=>{
+        if (err) throw err;
+        res.send(result)
+    })
     
-// })
+})
 
-// app.post('/api/auth/register', (req,res)=> {
-//     const data = {
-//         name: req.body.name,
-//         username: req.body.username,
-//         email: req.body.email,
-//         password: req.body.password
-//     }
-//     console.log(data)
-//     db.collection('users').insertOne(data, (err, result)=> {
-//         if(err) throw err
-//     })
-// })
+app.post('/api/auth/register', (req,res)=> {
+    const data = {
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+    }
+    console.log(data)
+    db.collection('users').insertOne(data, (err, result)=> {
+        if(err) throw err
+    })
+})
 
 // app.post('/contact', (req,res)=> {
 //     const data = {
