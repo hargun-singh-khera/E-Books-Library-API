@@ -23,29 +23,29 @@ app.get('/', (req, res) => {
     res.send("<h1>Welcome</h1>");
 })
 
-// app.get('/books', (req,res)=> {
-//     db.collection('books').find().toArray((err,result)=>{
-//         if (err) throw err;
-//         res.send(result)
-//     })
-// })
+app.get('/books', (req,res)=> {
+    db.collection('books').find().toArray((err,result)=>{
+        if (err) throw err;
+        res.send(result)
+    })
+})
 
-// app.get('/books/type/:type', (req,res)=> {
-//     let type = req.params.type;
-//     db.collection('books').find({"type": type}).toArray((err,result)=> { 
-//         if (err) throw err;
-//         res.send(result);
-//     })
-// })
+app.get('/books/type/:type', (req,res)=> {
+    let type = req.params.type;
+    db.collection('books').find({"type": type}).toArray((err,result)=> { 
+        if (err) throw err;
+        res.send(result);
+    })
+})
 
-// app.get('/books/:title', (req,res)=> {
-//     let title = req.params.title;
-//     console.log(title)
-//     db.collection('books').find({"title": title}).toArray((err,result)=> { 
-//         if (err) throw err;
-//         res.send(result);
-//     })
-// })
+app.get('/books/:title', (req,res)=> {
+    let title = req.params.title;
+    console.log(title)
+    db.collection('books').find({"title": title}).toArray((err,result)=> { 
+        if (err) throw err;
+        res.send(result);
+    })
+})
 
 // app.get('/api/auth/register', (req,res)=> {
 //     db.collection('users').find().toArray((err,result)=>{
