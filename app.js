@@ -3,17 +3,17 @@ const app = express();
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const mongoUrl = "mongodb+srv://Hargun_EBooksLibray:VCW1dyrFmoecISep@cluster0.9mmezhn.mongodb.net/?retryWrites=true&w=majority";
-// const cors = require('cors');
-// const bodyParser = require('body-parser');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 
-// var db;
+var db;
 
 const port = process.env.PORT || 8000;
 
-// app.use(bodyParser.urlencoded({extended: false}));
-// app.use(bodyParser.json());
-// app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(cors());
 
 
 
@@ -99,7 +99,3 @@ MongoClient.connect(mongoUrl,(err,client)=> {
         console.log(`The application started successfully on port ${port}`);
     })
 });
-
-// app.listen(port, ()=> {
-//     console.log(`The application started successfully on port ${port}`);
-// })
