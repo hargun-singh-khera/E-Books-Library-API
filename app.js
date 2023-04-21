@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-// const mongo = require('mongodb');
-// const MongoClient = mongo.MongoClient;
-// const mongoUrl = "mongodb+srv://Hargun_EBooksLibray:VCW1dyrFmoecISep@cluster0.9mmezhn.mongodb.net/?retryWrites=true&w=majority";
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient;
+const mongoUrl = "mongodb+srv://Hargun_EBooksLibray:VCW1dyrFmoecISep@cluster0.9mmezhn.mongodb.net/?retryWrites=true&w=majority";
 // const cors = require('cors');
 // const bodyParser = require('body-parser');
 
@@ -92,14 +92,14 @@ app.get('/', (req, res) => {
 // })
 
 // // connect with mongodb
-// MongoClient.connect(mongoUrl,(err,client)=> {
-//     if (err) console.log("Error while establishing connection");
-//     db = client.db('EBooksLibrary');
-//     app.listen(port, () => {
-//         console.log(`The application started successfully on port ${port}`);
-//     })
-// });
+MongoClient.connect(mongoUrl,(err,client)=> {
+    if (err) console.log("Error while establishing connection");
+    db = client.db('EBooksLibrary');
+    app.listen(port, () => {
+        console.log(`The application started successfully on port ${port}`);
+    })
+});
 
-app.listen(port, ()=> {
-    console.log(`The application started successfully on port ${port}`);
-})
+// app.listen(port, ()=> {
+//     console.log(`The application started successfully on port ${port}`);
+// })
