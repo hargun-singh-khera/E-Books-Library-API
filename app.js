@@ -68,28 +68,28 @@ app.post('/api/auth/register', (req,res)=> {
     })
 })
 
-// app.post('/contact', (req,res)=> {
-//     const data = {
-//         name: req.body.name,
-//         email: req.body.email,
-//         pnumber: req.body.pnumber,
-//         concern: req.body.concern
-//     }
-//     db.collection('contact').insertOne(data, (err, result)=> {
-//         if(err) throw err
-//     })
-// })
+app.post('/contact', (req,res)=> {
+    const data = {
+        name: req.body.name,
+        email: req.body.email,
+        pnumber: req.body.pnumber,
+        concern: req.body.concern
+    }
+    db.collection('contact').insertOne(data, (err, result)=> {
+        if(err) throw err
+    })
+})
 
-// app.post('/feedback', (req,res)=> {
-//     const data = {
-//         name: req.body.name,
-//         email: req.body.email,
-//         comments: req.body.comments
-//     }
-//     db.collection('feedback').insertOne(data, (err, result)=> {
-//         if(err) throw err
-//     })
-// })
+app.post('/feedback', (req,res)=> {
+    const data = {
+        name: req.body.name,
+        email: req.body.email,
+        comments: req.body.comments
+    }
+    db.collection('feedback').insertOne(data, (err, result)=> {
+        if(err) throw err
+    })
+})
 
 // // connect with mongodb
 MongoClient.connect(mongoUrl,(err,client)=> {
